@@ -59,7 +59,16 @@ function getrequest() {
 
 function handleEdit(userId) {
     console.log(userId);
-}
+    axios.put(`https://crudcrud.com/api/9b699f262f0b4720bba9642ccb22012e/Data/${userId}`)
+    .then(() => {
+        console.log('User updated successfully');
+        fetchAndDisplayData();
+    })
+    .catch((error) => {
+        console.error('Error updating user:', error);
+    });
+};
+
 
 function handleDelete(userId) {
     axios.delete(`https://crudcrud.com/api/9b699f262f0b4720bba9642ccb22012e/Data/${userId}`)
